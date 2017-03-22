@@ -56,18 +56,12 @@ extension UITraitCollection {
                 }
             }
         #endif
-        // `UIApplication.shared` is not a valid object in unit tests. Fall back
-        // to a default value if the delegate is nil.
-        if UIApplication.shared.delegate != nil {
-            return UIApplication.shared.preferredContentSizeCategory
-        }
-        else {
-            #if swift(>=3.0)
-                return UIContentSizeCategory.large
-            #else
-                return UIContentSizeCategoryLarge
-            #endif
-        }
+      
+        #if swift(>=3.0)
+            return UIContentSizeCategory.large
+        #else
+            return UIContentSizeCategoryLarge
+        #endif
     }
 
 }
